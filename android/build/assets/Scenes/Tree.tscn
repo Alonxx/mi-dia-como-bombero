@@ -1,0 +1,485 @@
+[gd_scene load_steps=72 format=2]
+
+[ext_resource path="res://Images/Terrain/tree.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/DragAndDrop.gd" type="Script" id=2]
+[ext_resource path="res://Images/Terrain/cat.png" type="Texture" id=3]
+[ext_resource path="res://Images/Terrain/ladder.png" type="Texture" id=4]
+[ext_resource path="res://Images/Terrain/ladderShadow.png" type="Texture" id=5]
+[ext_resource path="res://Images/Terrain/catShadow.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/TreeActivity.gd" type="Script" id=7]
+[ext_resource path="res://Audio/lock.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Images/Characters/1Shadow.png" type="Texture" id=9]
+[ext_resource path="res://Images/Characters/1.png" type="Texture" id=10]
+[ext_resource path="res://Images/UI/spritesheet__2_-removebg.png" type="Texture" id=11]
+[ext_resource path="res://Audio/catSound.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Images/UI/crying_cat_3d.png" type="Texture" id=13]
+[ext_resource path="res://Images/UI/weary_cat_3d.png" type="Texture" id=14]
+[ext_resource path="res://Images/UI/fearful_face_3d.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 321, 241.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 86, 193 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 240, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=93]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=94]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=97]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=98]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 480, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=99]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=100]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=101]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=102]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=103]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=104]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 720, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=107]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=108]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=109]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 960, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=113]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=114]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=115]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=116]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=117]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=118]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=119]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 1200, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=120]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 480, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=123]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 720, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=124]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 960, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=125]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1200, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=126]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 1440, 1440, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=127]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 1680, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=128]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 240, 1680, 240, 240 )
+
+[sub_resource type="SpriteFrames" id=77]
+animations = [ {
+"frames": [ SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 30.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 568.75, 493.75 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 83, 122 )
+
+[node name="TreeActivit" type="Area2D"]
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -12, -4.5 )
+shape = SubResource( 1 )
+
+[node name="TreeSprite" type="Sprite" parent="."]
+position = Vector2( -139, -247 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Ladder" type="Node2D" parent="."]
+visible = false
+position = Vector2( -244, 128 )
+scale = Vector2( 0.13, 0.13 )
+script = ExtResource( 2 )
+sprite_path = NodePath("LadderSprite")
+drop_zone_path = NodePath("LadderDropZone")
+drop_sound_path = NodePath("../DropSFX")
+touch_anim_path = NodePath("LadderSprite/TouchAnim")
+item_name = "Ladder"
+is_Enable_DD = true
+
+[node name="LadderDropZone" type="Position2D" parent="Ladder" groups=["ladderZone"]]
+position = Vector2( 2023.08, -7.69238 )
+scale = Vector2( 7.69231, 7.69231 )
+
+[node name="Sprite" type="Sprite" parent="Ladder/LadderDropZone"]
+position = Vector2( -42, -96 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="LadderSprite" type="Sprite" parent="Ladder"]
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="Ladder/LadderSprite"]
+position = Vector2( -1153.85, -2976.92 )
+scale = Vector2( 3.84615, 3.84615 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/LadderSprite/Area2D"]
+position = Vector2( 300, 773 )
+shape = SubResource( 3 )
+
+[node name="TouchAnim" type="AnimatedSprite" parent="Ladder/LadderSprite"]
+position = Vector2( 0.000976562, 15.3838 )
+scale = Vector2( 2.69231, 2.69231 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 38
+playing = true
+
+[node name="Cat" type="Node2D" parent="."]
+position = Vector2( -73, -303 )
+script = ExtResource( 2 )
+sprite_path = NodePath("CatSprite")
+drop_zone_path = NodePath("CatDropZone")
+drop_sound_path = NodePath("../DropSFX")
+touch_anim_path = NodePath("CatSprite/TouchAnim")
+item_name = "Cat"
+
+[node name="CatDropZone" type="Position2D" parent="Cat"]
+visible = false
+position = Vector2( 89, 323 )
+
+[node name="Sprite" type="Sprite" parent="Cat/CatDropZone"]
+position = Vector2( -49, -43 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="CatSprite" type="Sprite" parent="Cat"]
+position = Vector2( 240, 212 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Cat/CatSprite"]
+position = Vector2( -325, -212.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/CatSprite/Area2D"]
+position = Vector2( 256.25, 231.25 )
+shape = SubResource( 4 )
+
+[node name="Control" type="Control" parent="Cat/CatSprite"]
+margin_left = -31.4891
+margin_top = -102.159
+margin_right = 8.51094
+margin_bottom = -62.1589
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cat/CatSprite/Control"]
+margin_left = -831.011
+margin_top = -860.341
+margin_right = 204.99
+margin_bottom = -604.341
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="TextureRect" type="TextureRect" parent="Cat/CatSprite/Control/HBoxContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
+texture = ExtResource( 15 )
+
+[node name="TextureRect2" type="TextureRect" parent="Cat/CatSprite/Control/HBoxContainer"]
+margin_left = 260.0
+margin_right = 516.0
+margin_bottom = 256.0
+texture = ExtResource( 14 )
+
+[node name="TextureRect3" type="TextureRect" parent="Cat/CatSprite/Control/HBoxContainer"]
+margin_left = 520.0
+margin_right = 776.0
+margin_bottom = 256.0
+texture = ExtResource( 13 )
+
+[node name="TextureRect4" type="TextureRect" parent="Cat/CatSprite/Control/HBoxContainer"]
+margin_left = 780.0
+margin_right = 1036.0
+margin_bottom = 256.0
+texture = ExtResource( 13 )
+
+[node name="TouchAnim" type="AnimatedSprite" parent="Cat/CatSprite"]
+visible = false
+position = Vector2( 12.5, 100 )
+scale = Vector2( 4.375, 4.375 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 38
+playing = true
+
+[node name="FireFighter" type="Node2D" parent="."]
+visible = false
+position = Vector2( -128, -247 )
+script = ExtResource( 2 )
+sprite_path = NodePath("FireFighterSprit")
+drop_zone_path = NodePath("FireFighterDropZone")
+drop_sound_path = NodePath("../DropSFX")
+touch_anim_path = NodePath("FireFighterSprit/TouchAnim")
+item_name = "FireFighter"
+
+[node name="FireFighterDropZone" type="Position2D" parent="FireFighter"]
+position = Vector2( 96, 412 )
+
+[node name="Sprite" type="Sprite" parent="FireFighter/FireFighterDropZone"]
+position = Vector2( -1, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FireFighterSprit" type="Sprite" parent="FireFighter"]
+position = Vector2( -111, 411 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="FireFighter/FireFighterSprit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireFighter/FireFighterSprit/Area2D"]
+position = Vector2( 1, 0 )
+shape = SubResource( 5 )
+
+[node name="TouchAnim" type="AnimatedSprite" parent="FireFighter/FireFighterSprit"]
+position = Vector2( -2, -2 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 38
+playing = true
+
+[node name="DropSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 9.762
+
+[node name="CatSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[connection signal="body_entered" from="." to="." method="_on_TreeActivity_body_entered"]
+[connection signal="enable_drag_and_drop" from="." to="Ladder" method="_on_enable_drag_and_drop"]
+[connection signal="enable_drag_and_drop" from="." to="Cat" method="_on_enable_drag_and_drop"]
+[connection signal="enable_drag_and_drop" from="." to="FireFighter" method="_on_enable_drag_and_drop"]
+[connection signal="startActivity" from="." to="Ladder" method="_on_TreeActivity_startActivity"]
+[connection signal="startActivity" from="." to="Cat" method="_on_TreeActivity_startActivity"]
+[connection signal="startActivity" from="." to="FireFighter" method="_on_TreeActivity_startActivity"]
+[connection signal="embed" from="Ladder" to="." method="_on_embed"]
+[connection signal="input_event" from="Ladder/LadderSprite/Area2D" to="Ladder" method="_on_Area2D_input_event"]
+[connection signal="embed" from="Cat" to="." method="_on_embed"]
+[connection signal="input_event" from="Cat/CatSprite/Area2D" to="Cat" method="_on_Area2D_input_event"]
+[connection signal="embed" from="FireFighter" to="." method="_on_embed"]
+[connection signal="input_event" from="FireFighter/FireFighterSprit/Area2D" to="FireFighter" method="_on_Area2D_input_event"]

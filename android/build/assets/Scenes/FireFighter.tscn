@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Images/Characters/4.png" type="Texture" id=1]
+[ext_resource path="res://Images/Terrain/water.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/FireFighter.gd" type="Script" id=3]
+[ext_resource path="res://Images/UI/fearful_face_3d.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/double_exclamation_mark_3d.png" type="Texture" id=5]
+[ext_resource path="res://Images/UI/sweat_droplets_3d.png" type="Texture" id=6]
+[ext_resource path="res://Audio/water.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Audio/oh no.mp3" type="AudioStream" id=8]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.00882353, 0.105882, 0.882353, 0.897059 )
+colors = PoolColorArray( 0, 0.0588235, 0.0784314, 0, 0.0196078, 0.709804, 0.945098, 1, 0.0196078, 0.709804, 0.945098, 1, 0.0161014, 0.331492, 0.951999, 0.172549 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 30.0
+height = 54.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FireFighter" type="StaticBody2D" parent="." groups=["firefighter"]]
+rotation = -0.00500529
+script = ExtResource( 3 )
+
+[node name="Water" type="CPUParticles2D" parent="FireFighter"]
+material = SubResource( 5 )
+position = Vector2( 59.0944, -18.7045 )
+emitting = false
+amount = 7
+one_shot = true
+texture = ExtResource( 2 )
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 246.37
+scale_amount = 0.3
+color_ramp = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="FireFighter"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireFighter"]
+position = Vector2( -11, -1 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="WaterSFX" type="AudioStreamPlayer" parent="FireFighter"]
+stream = ExtResource( 7 )
+
+[node name="OhNoSFX" type="AudioStreamPlayer" parent="FireFighter"]
+stream = ExtResource( 8 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -31.4891
+margin_top = -102.159
+margin_right = 8.51094
+margin_bottom = -62.1589
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+margin_left = -53.9993
+margin_top = -0.270325
+margin_right = 982.001
+margin_bottom = 255.73
+rect_scale = Vector2( 0.15, 0.15 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
+texture = ExtResource( 4 )
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 260.0
+margin_right = 516.0
+margin_bottom = 256.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 520.0
+margin_right = 776.0
+margin_bottom = 256.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 780.0
+margin_right = 1036.0
+margin_bottom = 256.0
+texture = ExtResource( 5 )

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Images/Terrain/Flame.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Fire.gd" type="Script" id=2]
+[ext_resource path="res://Audio/fireandwater.mp3" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 48.25, 54 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.0794118, 0.0823529, 0.832353, 0.894118, 0.961765 )
+colors = PoolColorArray( 0.937255, 0.866667, 0.027451, 0, 0.889137, 0.883397, 0.0319563, 1, 0.748512, 0.205722, 0.205722, 1, 0.941176, 0.333333, 0.0431373, 0.85098, 0.976471, 0.741176, 0.627451, 0.0627451 )
+
+[node name="Fire" type="StaticBody2D" groups=["fire"]]
+position = Vector2( 0, -1 )
+input_pickable = true
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.25, 0 )
+shape = SubResource( 6 )
+
+[node name="Fire" type="CPUParticles2D" parent="." groups=["fire"]]
+amount = 13
+explosiveness = 0.1
+lifetime_randomness = 0.3
+local_coords = false
+texture = ExtResource( 1 )
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 250.0
+initial_velocity_random = 0.4
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.4
+color_ramp = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WaterOnFireSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="input_event" from="." to="." method="_on_Fire_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Fire_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Fire_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

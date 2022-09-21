@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/terrace (1).png" type="Texture" id=2]
+[ext_resource path="res://Scripts/ActivitesCreator.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Confetti.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Congrats.gd" type="Script" id=6]
+[ext_resource path="res://Images/UI/next_button.png" type="Texture" id=7]
+[ext_resource path="res://Audio/yay.mp3" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29191.2, 31.25 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "pulse"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Level1" type="Node2D"]
+
+[node name="ActivitiesController" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Car" parent="." instance=ExtResource( 1 )]
+position = Vector2( 515, 568 )
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+position = Vector2( 253, -229 )
+scale = Vector2( 0.768782, 1.29276 )
+current = true
+zoom = Vector2( 0.9, 0.9 )
+limit_left = 1
+limit_top = 1
+limit_bottom = 700
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Car/Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Car/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1900, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Car/Camera2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 965, 362 )
+scale = Vector2( 0.8, 0.919999 )
+texture = ExtResource( 2 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 1, 18 )
+scale = Vector2( 0.996716, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 29180, 671 )
+shape = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Congrats" type="CanvasLayer" parent="CenterContainer"]
+script = ExtResource( 6 )
+
+[node name="UI" type="Node2D" parent="CenterContainer/Congrats"]
+visible = false
+
+[node name="Confetti" parent="CenterContainer/Congrats/UI" instance=ExtResource( 5 )]
+position = Vector2( 610, 26 )
+
+[node name="NextButton" type="TextureButton" parent="CenterContainer/Congrats/UI"]
+margin_left = 571.206
+margin_top = 307.206
+margin_right = 683.206
+margin_bottom = 412.206
+rect_scale = Vector2( 1.01698, 1.01698 )
+rect_pivot_offset = Vector2( 50, 50 )
+texture_normal = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Congrats/UI/NextButton"]
+reset_on_save = false
+method_call_mode = 1
+anims/pulse = SubResource( 2 )
+
+[node name="YAYSFX" type="AudioStreamPlayer" parent="CenterContainer/Congrats/UI"]
+stream = ExtResource( 8 )
+
+[connection signal="button_up" from="CenterContainer/Congrats/UI/NextButton" to="ActivitiesController" method="_on_NextButton_button_up"]
+[connection signal="button_up" from="CenterContainer/Congrats/UI/NextButton" to="Car" method="_on_NextButton_button_up"]
+[connection signal="button_up" from="CenterContainer/Congrats/UI/NextButton" to="CenterContainer/Congrats" method="_on_NextButton_button_up"]
